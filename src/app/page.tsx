@@ -17,21 +17,21 @@ export default function Home() {
           type="email"
           placeholder="Email"
           required
-          errors={[]}
+          errors={state?.fieldErrors.email}
         />
         <Input
           name="username"
           type="text"
           placeholder="Uesrname"
           required
-          errors={[]}
+          errors={state?.fieldErrors.username}
         />
         <Input
           name="password"
           type="password"
           placeholder="Password"
           required
-          errors={state?.errors ?? []}
+          errors={state?.fieldErrors.password}
         />
         <Button text="Log in" />
         {state?.result && <MessageBox />}
