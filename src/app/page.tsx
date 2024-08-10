@@ -1,41 +1,33 @@
-"use client";
-
-import Button from "@/components/Button";
-import Input from "@/components/Input";
-import MessageBox from "@/components/MessageBox";
-import { useFormState } from "react-dom";
-import { handleFormSubmit } from "./action";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  const [state, formAction] = useFormState(handleFormSubmit, {} as any);
+  //   const [state, formAction] = useFormState(handleFormSubmit, {} as any);
+  const createAccount = async () => {
+    "use server";
+    redirect("/create-account");
+  };
 
+  const logOut = async () => {
+    "use server";
+    redirect("/log-in");
+  };
   return (
-    <div className="max-w-96 w-full h-screen flex items-center mx-auto ">
-      <form action={formAction} className="flex flex-col gap-3 w-full">
-        <Input
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-          errors={state?.fieldErrors.email}
-        />
-        <Input
-          name="username"
-          type="text"
-          placeholder="Uesrname"
-          required
-          errors={state?.fieldErrors.username}
-        />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          errors={state?.fieldErrors.password}
-        />
-        <Button text="Log in" />
-        {state?.result && <MessageBox />}
-      </form>
+    <div className="bg-gray-100 h-screen flex items-center justify-center">
+      <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full text-center">
+        <h1 className="text-2xl font-bold mb-6 text-gray-800">환영합니다!</h1>
+        <div className="flex flex-col space-y-4">
+          <form action={logOut}>
+            <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200">
+              로그인
+            </button>
+          </form>
+          <form action={createAccount}>
+            <button className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-200">
+              회원가입
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
