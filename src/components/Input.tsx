@@ -14,7 +14,7 @@ function Input({
     <div className="flex flex-col gap-2 ">
       <input
         name={name}
-        className={`py-3 px-4 border-2 bg-white rounded-full focus:ring-2 ring-gray-300 ring-offset-1 outline-none ${
+        className={`py-3 px-4 border-2 bg-white text-black rounded-full focus:ring-2 ring-gray-300 ring-offset-1 outline-none ${
           errors.length > 0
             ? "border-red-400 ring-red-300"
             : "border-gray-200 ring-gray-300"

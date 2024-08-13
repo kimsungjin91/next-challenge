@@ -26,7 +26,7 @@ export default async function Profile() {
     redirect("/");
   };
   return (
-    <div className="bg-gray-100 h-screen flex items-center justify-center">
+    <div className="w-full h-screen flex items-center justify-center">
       <div className="bg-white p-6 rounded-2xl shadow-lg max-w-sm w-full text-center">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">
           안녕하세요, {user?.username}님
