@@ -1,3 +1,4 @@
+import AddTweet from "@/components/AddTweet";
 import ListTweet from "@/components/ListTweet";
 import TweetList from "@/components/TweetList";
 import db from "@/lib/db";
@@ -42,6 +43,7 @@ export default async function Home() {
   return (
     <div className="h-screen flex justify-center">
       <div className="p-5 w-full flex flex-col gap-3">
+        <AddTweet />
         <TweetList initialTweets={initialTweets} />
       </div>
     </div>
