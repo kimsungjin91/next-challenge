@@ -30,15 +30,6 @@ export type InitialTweets = Prisma.PromiseReturnType<typeof getInitialTweets>;
 
 export default async function Home() {
   const initialTweets = await getInitialTweets();
-  const createAccount = async () => {
-    "use server";
-    redirect("/create-account");
-  };
-
-  const logOut = async () => {
-    "use server";
-    redirect("/log-in");
-  };
 
   return (
     <div className="h-screen flex justify-center">

@@ -86,6 +86,7 @@ export default async function TweetDetail({
     return notFound();
   }
   const tweet = await getCachedTweet(tweetId);
+
   if (!tweet) {
     return notFound();
   }
@@ -96,7 +97,12 @@ export default async function TweetDetail({
       <div className="p-5 rounded-md text-2xl">{tweet.tweet}</div>
       <div className="flex justify-between items-center p-5 ">
         <div className="flex gap-2">
-          <p>{tweet.user.username}</p>
+          <Link
+            className=" text-white font-semibold"
+            href={`/profile/${tweet.user.username}`}
+          >
+            <p>{tweet.user.username}</p>
+          </Link>
           <p>{formatToTimeAgo(tweet.created_at.toString())}</p>
         </div>
         <div className="flex gap-2">
