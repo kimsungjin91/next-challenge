@@ -7,7 +7,6 @@ export default function Messages() {
 
   const onSubmit = async (FormData: any) => {
     "use server";
-    console.log(FormData.get("search"));
     if (FormData.get("search") === "") {
       return;
     }

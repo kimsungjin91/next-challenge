@@ -46,7 +46,6 @@ export async function UpdateProfile(prevState: any, formData: FormData) {
   const result = await formSchema.spa(data);
 
   if (!result.success) {
-    console.log(result.error.flatten());
     return result.error.flatten();
   }
   const session = await getSession();
